@@ -1,0 +1,14 @@
+name: test workflow
+on:
+  pull_request_target:
+    branches:
+      - "**"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "works"
