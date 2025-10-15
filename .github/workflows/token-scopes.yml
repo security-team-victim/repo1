@@ -1,0 +1,12 @@
+name: Check GITHUB_TOKEN Scopes
+
+on: [push]
+
+jobs:
+  check-scopes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check token scopes
+        run: |
+          echo "Checking token scopes..."
+          curl -i -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com | grep X-OAuth-Scopes
